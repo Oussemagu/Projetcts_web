@@ -1,0 +1,9 @@
+h2 {
+  text-align: center;      /* centre le texte */
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  color: #007bff;          /* bleu moderne */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}

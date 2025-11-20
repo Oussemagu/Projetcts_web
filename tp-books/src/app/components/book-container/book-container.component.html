@@ -1,0 +1,26 @@
+<h2>Gestion des livres</h2>
+
+<!-- Formulaire CREATE / UPDATE -->
+<app-book-form
+  [categories]="categories"
+  [book]="selectedBook"
+  (formSubmit)="isEditMode ? updateBook($event) : addBook($event)">
+</app-book-form>
+
+<!-- Liste READ avec EDIT/DELETE -->
+<input
+  type="text"
+  placeholder="Rechercher par titre"
+  [(ngModel)]="searchText"
+  style="margin-bottom:10px; padding:5px;"
+/>
+
+<app-book-list
+  [books]="filteredBooks()"
+  (delete)="deleteBook($event)"
+  (edit)="editBook($event)">
+</app-book-list>
+
+
+<!-- Compteur total -->
+<p>Total livres : {{ books.length }}</p>

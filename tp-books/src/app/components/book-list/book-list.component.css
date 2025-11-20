@@ -1,0 +1,96 @@
+/* Table container */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Table header */
+thead th {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #0056b3;
+}
+
+/* Table body cells */
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Row hover effect */
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Action buttons */
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+/* Edit button */
+button[type="button"]:first-child {
+  background-color: #ffc107;
+  color: #333;
+}
+
+button[type="button"]:first-child:hover {
+  background-color: #e0a800;
+}
+
+/* Delete button */
+button[type="button"]:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+button[type="button"]:last-child:hover {
+  background-color: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  tbody td {
+    padding: 5px;
+    text-align: right;
+    position: relative;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  button {
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,23 @@
+<app-bienvenue></app-bienvenue>
+
+<hr>
+
+<h1>Ma Boutique</h1>
+
+<app-produit
+  [nomProduit]="'Ordinateur Portable'"
+  (ajouterAuPanier)="gererAjoutAuPanier($event)">
+</app-produit>
+
+<app-produit
+  [nomProduit]="'Clavier Gamer'"
+  (ajouterAuPanier)="gererAjoutAuPanier($event)">
+</app-produit>
+
+<hr>
+
+<app-panier [items]="panierItems"></app-panier>
+
+<hr>
+
+<app-utilisateur></app-utilisateur>

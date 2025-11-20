@@ -1,0 +1,11 @@
+<h2>Panier</h2>
+
+<div *ngIf="items.length === 0">
+  Le panier est vide.
+</div>
+
+<ul>
+  <li *ngFor="let item of items">
+    {{ item }}
+  </li>
+</ul>

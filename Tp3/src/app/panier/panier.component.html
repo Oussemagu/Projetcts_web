@@ -1,0 +1,9 @@
+<h3>Panier</h3>
+
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<div *ngIf="items.length === 0" class="empty">
+  Le panier est vide.
+</div>

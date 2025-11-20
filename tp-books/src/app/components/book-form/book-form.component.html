@@ -1,0 +1,147 @@
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)" novalidate>
+
+  <!-- TITLE -->
+  <div>
+    <label for="title">Titre</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="book.title"
+      required
+      minlength="3"
+    />
+
+    <div *ngIf="bookForm.controls['title']?.invalid && bookForm.controls['title']?.dirty" style="color:red">
+      <span *ngIf="bookForm.controls['title']?.errors?.['required']">Titre obligatoire.</span>
+      <span *ngIf="bookForm.controls['title']?.errors?.['minlength']">Minimum 3 caractères.</span>
+    </div>
+  </div>
+
+
+  <!-- AUTHOR -->
+  <div>
+    <label for="author">Auteur</label>
+    <input
+      type="text"
+      id="author"
+      name="author"
+      [(ngModel)]="book.author"
+      required
+      minlength="3"
+    />
+
+    <div *ngIf="bookForm.controls['author']?.invalid && bookForm.controls['author']?.dirty" style="color:red">
+      <span *ngIf="bookForm.controls['author']?.errors?.['required']">Auteur obligatoire.</span>
+      <span *ngIf="bookForm.controls['author']?.errors?.['minlength']">Minimum 3 caractères.</span>
+    </div>
+  </div>
+
+
+  <!-- EMAIL -->
+  <div>
+    <label for="publisherEmail">Email éditeur</label>
+    <input
+      type="email"
+      id="publisherEmail"
+      name="publisherEmail"
+      [(ngModel)]="book.publisherEmail"
+      required
+      email
+    />
+
+    <div *ngIf="bookForm.controls['publisherEmail']?.invalid && bookForm.controls['publisherEmail']?.dirty" style="color:red">
+      <span *ngIf="bookForm.controls['publisherEmail']?.errors?.['required']">Email obligatoire.</span>
+      <span *ngIf="bookForm.controls['publisherEmail']?.errors?.['email']">Format email invalide.</span>
+    </div>
+  </div>
+
+
+  <!-- PHONE -->
+  <div>
+    <label for="publisherPhone">Téléphone éditeur</label>
+    <input
+      type="number"
+      id="publisherPhone"
+      name="publisherPhone"
+      [(ngModel)]="book.publisherPhone"
+      pattern="^[0-9]{8}$"
+    />
+
+    <div *ngIf="bookForm.controls['publisherPhone']?.invalid && bookForm.controls['publisherPhone']?.dirty" style="color:red">
+      <span>Doit être un numéro tunisien à 8 chiffres.</span>
+    </div>
+  </div>
+
+
+  <!-- RELEASE DATE -->
+  <div>
+    <label for="releaseDate">Date de sortie</label>
+    <input
+      type="date"
+      id="releaseDate"
+      name="releaseDate"
+      [(ngModel)]="book.releaseDate"
+      required
+      min="1900-01-01"
+    />
+
+    <div *ngIf="bookForm.controls['releaseDate']?.invalid && bookForm.controls['releaseDate']?.dirty" style="color:red">
+      <span>Date obligatoire et doit être > 1900.</span>
+    </div>
+  </div>
+
+
+  <!-- CATEGORY -->
+  <div>
+    <label for="category">Catégorie</label>
+    <select
+      id="category"
+      name="category"
+      [(ngModel)]="book.category"
+      required
+    >
+      <option value="">-- Choisir catégorie --</option>
+      <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+    </select>
+
+    <div *ngIf="bookForm.controls['category']?.invalid && bookForm.controls['category']?.dirty" style="color:red">
+      <span>Catégorie obligatoire.</span>
+    </div>
+  </div>
+
+
+  <!-- IS AVAILABLE -->
+  <div>
+    <label>
+      <input
+        type="checkbox"
+        name="isAvailable"
+        [(ngModel)]="book.isAvailable"
+      />
+      Disponible ?
+    </label>
+  </div>
+
+
+  <!-- STOCK -->
+  <div>
+    <label for="stock">Stock</label>
+    <input
+      type="number"
+      id="stock"
+      name="stock"
+      [(ngModel)]="book.stock"
+      min="0"
+    />
+
+    <div *ngIf="bookForm.controls['stock']?.invalid && bookForm.controls['stock']?.dirty" style="color:red">
+      <span>Stock ≥ 0.</span>
+    </div>
+  </div>
+
+
+  <!-- SUBMIT BUTTON -->
+  <button type="submit">Enregistrer</button>
+
+</form>

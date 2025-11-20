@@ -1,0 +1,38 @@
+.card {
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border: 2px solid #eee;
+  transition: 0.3s ease;
+}
+
+.en-stock {
+  border-color: #4caf50;
+}
+
+.hors-stock {
+  border-color: #f44336;
+  filter: grayscale(100%);
+}
+
+button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background: #1976d2;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
